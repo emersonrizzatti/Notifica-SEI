@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Notifica SEI",
+  "version": "2.0",
+  "description": "Monitorar e notificar atualizações em processos no SEI.",
+  "permissions": [
+    "identity",
+    "activeTab",
+    "alarms",
+    "notifications",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://sei.unipampa.edu.br/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://sei.unipampa.edu.br/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+"oauth2": {
+    "client_id": "628974333014-hucdd0n83l7a2mj2h3lges82is1ie38l.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/gmail.send" 
+      
+    ]
+  }
+}

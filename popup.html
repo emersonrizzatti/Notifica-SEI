@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notifica SEI</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 320px;
+            padding: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        h2, h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        h2 { font-size: 1.3em; }
+        h3 { font-size: 1.1em; margin-top: 20px;}
+        p { margin: 5px 0 10px 0; }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 9px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        #startMonitor { background-color: #28a745; color: white; }
+        #startMonitor:hover { background-color: #218838; }
+        #stopMonitor { background-color: #dc3545; color: white; }
+        #stopMonitor:hover { background-color: #c82333; }
+        #clearData { background-color: #6c757d; color: white; }
+        #clearData:hover { background-color: #5a6268; }
+
+        .section {
+            background-color: #ffffff;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        #saveLogin { background-color: #ffc107; color: black; }
+        #saveLogin:hover { background-color: #e0a800; }
+        
+        #googleAuth { background-color: #007bff; color: white; margin-bottom: 10px; }
+        #googleAuth:hover { background-color: #0069d9; }
+        #googleAuth:disabled { background-color: #6c757d; cursor: not-allowed; }
+
+        #status { font-weight: bold; }
+        .option-group { margin-top: 10px; display: flex; align-items: center; }
+        .option-group label { margin-left: 8px; font-size: 0.9em; user-select: none; }
+
+        #emailAuthStatus { font-size: 0.8em; margin-top: 5px; text-align: center; display: block; }
+        .status-success { color: #28a745; }
+        .status-error { color: #dc3545; }
+
+        #updatesContainer { margin-top: 20px; }
+        #updatesList .update-item {
+            background-color: #e9ecef;
+            border-left: 4px solid #007bff;
+            padding: 10px; margin-bottom: 8px; border-radius: 4px; font-size: 0.85em;
+        }
+        #updatesList p { margin: 0; line-height: 1.4; }
+        #updatesList .message { font-weight: bold; color: #0056b3; }
+        #updatesList .process-info { color: #6c757d; }
+        a { color: #0056b3; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h2>Notifica SEI</h2>
+
+    <div class="section">
+        <h3>Login Automático (SEI)</h3>
+        <input type="text" id="loginUser" placeholder="Usuário do SEI">
+        <input type="password" id="loginPass" placeholder="Senha do SEI">
+        <button id="saveLogin">Salvar Credenciais do SEI</button>
+    </div>
+
+    <div class="section">
+        <h3>Notificações por E-mail</h3>
+        <button id="googleAuth">Conectar com Google</button>
+        <span id="emailAuthStatus"></span>
+        <input type="email" id="userEmail" placeholder="Seu e-mail para receber alertas">
+        <div class="option-group">
+            <input type="checkbox" id="enableEmails">
+            <label for="enableEmails">Ativar notificações por e-mail</label>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Controle do Monitoramento</h3>
+        <p>Status: <span id="status">Verificando...</span></p>
+        <div class="button-group">
+            <button id="startMonitor">Iniciar</button>
+            <button id="stopMonitor">Parar</button>
+        </div>
+        <div class="option-group">
+            <input type="checkbox" id="autoStartMonitor">
+            <label for="autoStartMonitor">Iniciar automaticamente ao abrir o SEI</label>
+        </div>
+        <button id="clearData" style="margin-top: 10px;">Limpar Dados Salvos</button>
+    </div>
+
+    <div id="updatesContainer">
+        <h3>Últimas Atualizações</h3>
+        <div id="updatesList">
+            <p>Nenhuma atualização recente.</p>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
