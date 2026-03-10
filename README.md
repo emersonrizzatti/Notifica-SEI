@@ -14,7 +14,7 @@ Uma extensão para Google Chrome que monitora os processos do Sistema Eletrônic
 
 Esta extensão não está disponível na Chrome Web Store. Siga as instruções abaixo para instalá-la no seu navegador Google Chrome:
 
-1. Baixe o código fonte deste repositório ou clone-o com o Git (`git clone https://github.com/emersonrizzatti/Notifica-SEI.git`).
+1. Baixe o código fonte deste repositório [clicando aqui](https://github.com/emersonrizzatti/Notifica-SEI/archive/refs/heads/main.zip) ou clone-o com o Git (`git clone https://github.com/emersonrizzatti/Notifica-SEI.git`).
 2. Abra o Google Chrome e digite `chrome://extensions/` na barra de endereços.
 3. No canto superior direito, ative a chave **Modo do desenvolvedor**.
 4. Clique no botão **Carregar sem compactação** (ou *Load unpacked*).
